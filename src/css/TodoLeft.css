@@ -1,0 +1,17 @@
+:root {
+  --item-color: rebeccapurple;
+  --item-bg: #f0f0f0;
+}
+.todoLeft {
+  text-align: end;
+  padding-top: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.todoLeftNumber{
+  font-weight: bold;
+  color: var(--item-color);
+}
+.todoLeftText{
+  color: dimgray;
+}

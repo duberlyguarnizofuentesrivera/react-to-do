@@ -14,6 +14,5 @@ export default function TodoControls({todoNameRef, addTodo, clearTodo}) {
                 <button onClick={clearTodo}>Clear complete</button>
             </div>
         </>
-    )
-        ;
+    );
 }

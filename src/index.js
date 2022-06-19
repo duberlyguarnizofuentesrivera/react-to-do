@@ -5,7 +5,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-        <App/>
+//StrictMode is not used because we are using localStorage, which causes a side effect
+    <App/>
 );
 
 // If you want to start measuring performance in your app, pass a function

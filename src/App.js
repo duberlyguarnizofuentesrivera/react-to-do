@@ -1,22 +1,24 @@
-import TodoList from "./TodoList";
-import {useState, useRef} from "react";
+import React, {useState} from "react";
 import uuid from 'react-uuid';
-import {useEffect} from "react";
+import TodoList from "./TodoList";
 import TodoControls from "./TodoControls";
+import TodoLeft from "./TodoLeft";
+import "./css/App.css";
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos';
 
 function App() {
     const [todos, setTodos] = useState([]);
 
-    const todoNameRef = useRef();
+    const todoNameRef = React.createRef();
 
-    useEffect(() => {
+    React.useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+        console.log(storedTodos);
         if (storedTodos) setTodos(storedTodos);
     }, []);
 
-    useEffect(() => {
+    React.useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
     }, [todos]);
 
@@ -27,7 +29,7 @@ function App() {
         setTodos(newTodos);
     }
 
-    function handleAddTodo(e) {
+    function handleAddTodo() {
         const name = todoNameRef.current.value;
         if (name === "") {
             return;
@@ -38,18 +40,20 @@ function App() {
         todoNameRef.current.value = null;
     }
 
-    function handleClearTodo(e) {
+    function handleClearTodo() {
         setTodos(prevTodos => {
             return prevTodos.filter(todo => !todo.complete);
         });
     }
 
     return (
-        <>
+        <div className={"container"}>
+            <h1 className={"todoTitle"}>To Do List</h1>
             <TodoList todos={todos} toggleTodo={toggleTodo}/>
             <TodoControls todoNameRef={todoNameRef} addTodo={handleAddTodo} clearTodo={handleClearTodo}/>
-            <div>{todos.filter(todo => !todo.complete).length} left to do</div>
-        </>
+            <TodoLeft todos={todos}/>
+            <footer className={"todoFooter"}>A react App by Duberly Guarnizo</footer>
+        </div>
     )
 }
 

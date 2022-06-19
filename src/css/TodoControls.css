@@ -2,15 +2,20 @@
     --item-color: rebeccapurple;
     --item-bg: #f0f0f0;
 }
+
 .inputContainer {
-    padding: 1rem 0.5rem;
+    padding: 1rem;
 }
-.buttonContainer{
+
+.buttonContainer {
     display: grid;
     min-height: 5rem;
-    grid-template-columns: 20rem;
+    grid-template-columns:100%;
     gap: 0.5em;
     padding-top: 0.5rem;
+    align-items: center;
+    justify-items: center;
+
 }
 
 button {
@@ -23,7 +28,6 @@ button {
     cursor: pointer;
     display: inline-block;
     font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
-    font-size: 16px;
     font-weight: 800;
     line-height: 16px;
     min-height: 40px;
@@ -61,20 +65,20 @@ input[type=text] {
     margin: 0;
     font: inherit;
     color: currentColor;
-    width: 25rem;
-    height: 2.5rem;
+    width: 95%;
+    padding: 0.5rem;
+    height: 2.4rem;
     border: 0.10em solid currentColor;
     border-radius: 0.15em;
     transform: translateY(-0.075em);
     display: grid;
     place-content: center;
-    font-size: 1.8rem;
 }
 
 input[type=text]::before {
     content: "";
-    width: 0.60em;
-    height: 0.60em;
+    width: 0.60rem;
+    height: 0.60rem;
     -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     transform: scale(0);
@@ -84,7 +88,6 @@ input[type=text]::before {
     /* Windows High Contrast Mode */
     background-color: var(--item-bg);
 }
-
 
 
 input[type=text]:focus {

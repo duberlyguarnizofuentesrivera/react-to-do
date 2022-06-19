@@ -9,21 +9,10 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-}
-
-form {
-    display: grid;
-    place-content: center;
-    min-height: 100vh;
-}
-
 .item {
     font-family: system-ui, sans-serif;
-    font-size: 1.3rem;
-    font-weight: bold;
-    line-height: 1.1;
+    font-weight: normal;
+    line-height: 1.0;
     display: grid;
     grid-template-columns: 1em auto;
     gap: 0.5em;
@@ -34,6 +23,13 @@ form {
     margin-top: 3rem;
 }
 
+.item-text-completed{
+    text-decoration: line-through !important;
+    color: dimgrey ;
+}
+.item-text-incomplete{
+    text-decoration: none !important;
+}
 
 input[type=checkbox] {
     /* Add if not using autoprefixer */
@@ -47,7 +43,7 @@ input[type=checkbox] {
     margin: 0;
     font: inherit;
     color: currentColor;
-    width: 1.10em;
+    width: 1.00em;
     height: 1.10em;
     border: 0.10em solid currentColor;
     border-radius: 0.15em;
