@@ -1,6 +1,10 @@
 import React from "react";
+import "./css/Todo.css"
 
 export default function Todo({todo, toggleTodo}) {
+
+    const todoText = todo.name.charAt(0).toUpperCase() + todo.name.slice(1).toLowerCase();
+
     function handleTodoClick() {
         return toggleTodo(todo.id);
     }
@@ -8,9 +12,9 @@ export default function Todo({todo, toggleTodo}) {
     return (
         <>
             <div>
-                <label>
+                <label className="item">
                     <input type={"checkbox"} checked={todo.complete} onChange={handleTodoClick}/>
-                    {todo.name}, {todo.id}
+                    <span className="item-text"> {todoText}</span>
                 </label>
 
             </div>
